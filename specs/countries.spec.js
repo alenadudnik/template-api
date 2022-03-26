@@ -17,10 +17,10 @@ describe('Countries', function() {
 	});
 
 	it('response body contains array of strings with 2 symbols each', function() {
-		for(let country in countriesHelper.response.body){
+		for(let country of countriesHelper.response.body){
 			expect(country).to.be.a('string')
-			// expect(country.length).to.eq(2)
-			// expect(country).to.be(country.toUpperCase())
+			expect(country.length).to.eq(2)
+			expect(country).to.eq(country.toUpperCase())
 		}
 	});
 })
