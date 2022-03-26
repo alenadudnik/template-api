@@ -1,17 +1,17 @@
 const supertest = require('supertest')
 
-class CountriesHelper{
+class CasesHelper{
 	constructor() {
-		  this.response = null
+		this.response = null
 	}
 
-	async getCountries(){
+	async getCases(countryCode){
 		await supertest(process.env.BASE_URL)
-			.get('/country_codes')
+			.get(`/country/${countryCode}`)
 			.then(res => {
 				this.response = res
 			})
 	}
 }
 
-module.exports = CountriesHelper
+module.exports = CasesHelper
